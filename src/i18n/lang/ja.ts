@@ -15,6 +15,8 @@ export default {
     sharePostIntro: "この記事をシェア:",
     sharePostOn: "{{platform}}でこの記事をシェア",
     sharePostViaEmail: "メールでこの記事をシェア",
+    copyLink: "リンクをコピー",
+    linkCopied: "コピーしました",
     tagLabel: "タグ",
     backToTop: "ページの先頭へ戻る",
     goBack: "戻る",

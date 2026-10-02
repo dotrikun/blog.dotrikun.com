@@ -1,5 +1,6 @@
 ---
 import LinkButton from "@/components/LinkButton.astro";
+import IconCopy from "@/assets/icons/IconCopy.svg";
 import { tplStr, useTranslations } from "@/i18n";
 import config from "@/config";
 
@@ -48,7 +49,43 @@ const items = await Promise.all(
             </LinkButton>
           ) : null
         )}
+        <button
+          type="button"
+          class="group inline-flex scale-90 items-center justify-center p-2 hover:rotate-6 hover:text-accent sm:p-1"
+          title={t.post.copyLink}
+          aria-label={t.post.copyLink}
+          data-copy-link={pageUrl.toString()}
+          data-copy-label={t.post.copyLink}
+          data-copied-label={t.post.linkCopied}
+        >
+          <IconCopy class="inline-block size-6 scale-125 stroke-current opacity-90 sm:scale-110" />
+          <span class="sr-only">{t.post.copyLink}</span>
+        </button>
       </div>
     </div>
   )
 }
+
+<script>
+  document.addEventListener("click", async event => {
+    const target = event.target;
+    if (!(target instanceof Element)) return;
+
+    const button = target.closest<HTMLButtonElement>("[data-copy-link]");
+    if (!button) return;
+
+    await navigator.clipboard.writeText(button.dataset.copyLink ?? "");
+    const copiedLabel = button.dataset.copiedLabel ?? "Copied";
+    button.title = copiedLabel;
+    button.setAttribute("aria-label", copiedLabel);
+    const label = button.querySelector(".sr-only");
+    if (label) label.textContent = copiedLabel;
+
+    window.setTimeout(() => {
+      const copyLabel = button.dataset.copyLabel ?? "Copy link";
+      button.title = copyLabel;
+      button.setAttribute("aria-label", copyLabel);
+      if (label) label.textContent = copyLabel;
+    }, 1500);
+  });
+</script>
