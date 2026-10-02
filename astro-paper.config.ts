@@ -2,14 +2,14 @@ import { defineAstroPaperConfig } from "./src/types/config";
 
 export default defineAstroPaperConfig({
   site: {
-    url: "https://astro-paper.pages.dev/",
-    title: "AstroPaper",
-    description: "A minimal, responsive and SEO-friendly Astro blog theme.",
-    author: "Sat Naing",
-    profile: "https://satna.ing",
-    ogImage: "default-og.jpg",
-    lang: "en",
-    timezone: "Asia/Bangkok",
+    url: "https://blog.dotrikun.com/",
+    title: "変化の触媒のたれ",
+    description:
+      "渋谷で働くエンジニアの日記です。",
+    author: "Hiroshi Shikata",
+    ogImage: "og.png",
+    lang: "ja",
+    timezone: "Asia/Tokyo",
     dir: "ltr",
   },
   posts: {
@@ -22,18 +22,10 @@ export default defineAstroPaperConfig({
     dynamicOgImage: true,
     showArchives: true,
     showBackButton: true,
-    editPost: {
-      enabled: true,
-      url: "https://github.com/satnaing/astro-paper/edit/main/",
-    },
+    editPost: { enabled: false },
     search: "pagefind",
   },
-  socials: [
-    { name: "github",   url: "https://github.com/satnaing/astro-paper" },
-    { name: "x",        url: "https://x.com/username" },
-    { name: "linkedin", url: "https://www.linkedin.com/in/username/" },
-    { name: "mail",     url: "mailto:yourmail@gmail.com" },
-  ],
+  socials: [],
   shareLinks: [
     { name: "whatsapp", url: "https://wa.me/?text=" },
     { name: "facebook", url: "https://www.facebook.com/sharer.php?u=" },
