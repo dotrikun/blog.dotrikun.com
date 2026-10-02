@@ -50,7 +50,7 @@ Dynamic OG images include _the blog post title_, _author name_, and _site title_
 ### Issue with Non-Latin Characters
 
 > [!CAUTION]
-> Titles with non-latin characters won't display properly out of the box. Switch the Google font family to one that covers your writing system, and include **both** `400` and `700` weights — Satori uses separate buffers for regular and bold, so missing either causes mismatched rendering.
+> Generated images need a font that covers the title's writing system. This project uses Noto Sans JP for OGP images under the dedicated `--font-og-image` variable, leaving the site's `--font-google-sans-code` typography unchanged. Include **both** `400` and `700` weights — Satori uses separate buffers for regular and bold, so missing either causes mismatched rendering.
 
 ```ts file="astro.config.ts"
 import { defineConfig, fontProviders } from "astro/config";
@@ -58,25 +58,22 @@ import { defineConfig, fontProviders } from "astro/config";
 export default defineConfig({
   fonts: [
     {
-      // Example: Japanese coverage (pick what you need for your audience)
       name: "Noto Sans JP",
-      cssVariable: "--font-google-sans-code",
+      cssVariable: "--font-og-image",
       provider: fontProviders.google(),
-      fallbacks: ["monospace"],
+      fallbacks: ["sans-serif"],
       weights: [400, 700],
-      styles: ["normal", "italic"],
+      styles: ["normal"],
       formats: ["woff", "ttf"],
     },
   ],
 });
 ```
 
-If you change `cssVariable`, also update the matching key in:
+Register the font with `<Font cssVariable="--font-og-image" />` in `src/layouts/Layout.astro`. If you change the font family or variable, keep the configuration and Satori font names in sync in:
 
 - `src/pages/og.png.ts`
 - `src/pages/posts/[...slug]/index.png.ts`
-
-> Check out [this PR](https://github.com/satnaing/astro-paper/pull/318) for more info.
 
 > [!WARNING] Caveats
 >
