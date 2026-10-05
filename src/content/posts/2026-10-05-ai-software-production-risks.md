@@ -4,6 +4,8 @@ pubDatetime: 2026-10-05T10:00:00+09:00
 description: "昨今のソフトウェア開発について思うことまとめ"
 tags:
   - 技術
+  - AI
+  - ポエム
 draft: false
 ---
 
