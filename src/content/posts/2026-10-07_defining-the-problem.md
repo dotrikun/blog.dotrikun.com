@@ -33,9 +33,7 @@ draft: false
 
 > 「問題は、適切に言語化された時点で半分解決している」
 > 
-> A problem well stated is a problem half solved.
-> — Inventor Charles Franklin Kettering (1876–1958)
-> https://spectrum.ieee.org/when-the-problem-is-the-problem
+> — Charles Franklin Kettering
 
 これは真だと思うし、正しく言語化されていないということは、「問題として定義されておらず、解決できる状態ではない」とも言える。
 
@@ -44,6 +42,7 @@ draft: false
 同じようにHowじゃなくてWhyを大切にすべきという話。
 
 > 「重要なことは、正しい答えを見つけることではない。正しい問いを探すことである」
+> 
 > — Peter Drucker
 
 システム開発を生業にしていると非常に身につまされる。
